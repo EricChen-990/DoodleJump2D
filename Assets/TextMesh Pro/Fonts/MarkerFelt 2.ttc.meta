@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 111fddd5be814493f801d05834155fab
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Marker Felt
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8c5e1105b82754c80b0708702bf4b306, type: 3}
+  - {fileID: 12800000, guid: 94ce226c3b09d494e8f97bbf8bce2503, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
