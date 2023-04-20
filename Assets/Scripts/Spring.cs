@@ -37,6 +37,6 @@ public class Spring : MonoBehaviour{
             animator.SetTrigger("Touched");
             audios.PlaySpringSound();
         }
-        
     }
+    
 }
