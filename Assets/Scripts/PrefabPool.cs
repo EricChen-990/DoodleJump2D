@@ -51,42 +51,66 @@ public class PrefabPool : MonoBehaviour
         }
     }
 
-        // for(int i = 0 ; i < smallAmoountToPool ; i++){
-        //     GameObject gobja =  Instantiate(checkBoxPrefab);
-        //     gobja.SetActive(false);
-        //     poolObjects.Add(gobja);
+    for(int i = 0 ; i < smallAmoountToPool ; i++){
+        GameObject gobja =  Instantiate(checkBoxPrefab);
+        gobja.SetActive(false);
+        poolObjects.Add(gobja);
 
-        //     GameObject gobjb =  Instantiate(trapLeftPrefab);
-        //     gobjb.SetActive(false);
-        //     poolObjects.Add(gobjb);
+        GameObject gobjb =  Instantiate(trapLeftPrefab);
+        gobjb.SetActive(false);
+        poolObjects.Add(gobjb);
 
-        //     GameObject gobjc =  Instantiate(trapRightPrefab);
-        //     gobjc.SetActive(false);
-        //     poolObjects.Add(gobjc);
-        // }
+        GameObject gobjc =  Instantiate(trapRightPrefab);
+        gobjc.SetActive(false);
+        poolObjects.Add(gobjc);
+    }
 
-    // public GameObject GetObject(){
-    //     int i = UnityEngine.Random.Range(0, poolObjects.Count);
-    //     GameObject goobj = poolObjects[i];
-    //     poolObjects.RemoveAt(i);
-    //     return goobj;
-    // }
+    public GameObject GetObject(){
+        int i = UnityEngine.Random.Range(0, poolObjects.Count);
+        GameObject goobj = poolObjects[i];
+        poolObjects.RemoveAt(i);
+        return goobj;
+    }
 
-    // public void Recycle(GameObject gobj){
-    //     gobj.SetActive(false);
-    //     poolObjects.Add(gobj);
-    // }
+    public void Recycle(GameObject gobj){
+        gobj.SetActive(false);
+        poolObjects.Add(gobj);
+    }
 
-    // public GameObject GetChickBoxObject(){
-    //     GameObject gobj = checkboxPool[0];
-    //     checkboxPool.RemoveAt(0);
-    //     return gobj;
-    // }
+    public GameObject GetChickBoxObject(){
+        GameObject gobj = checkboxPool[0];
+        checkboxPool.RemoveAt(0);
+        return gobj;
+    }
 
-    // public void RecycleCheckBox(GameObject gobj){
-    //     gobj.SetActive(false);
-    //     checkboxPool.Add(gobj);
-    // }
+    public void RecycleCheckBox(GameObject gobj){
+        gobj.SetActive(false);
+        checkboxPool.Add(gobj);
+    }
+
+    public Gameobject GetTrapLeftobject(){
+        GameObject gobj = trapLeftPool[0];
+        trapLeftPool.RemoveAt (0);
+        return gobj;
+    }
+
+    public void RecycleTrapLeft(GameObject gobj){
+        gobj.setActive(false);
+        trapLeftPool.Add(gobj);
+    }
+
+    public GameObject GetTrapRightobject(){
+        //int i = UnityEngine. Random. Range (0, poolobjects .Count);
+        GameObject gobj = traprightPool[0];
+        trapRightPool.RemoveAt (0);
+        return gobj;
+    }
+2個參考
+    public void RecycleTrapRight(GameObject gobj){
+        gobj.SetActive(false); 
+        trapRightPool.Add(gobj);
+    }
+
     void Update(){
         
     }
