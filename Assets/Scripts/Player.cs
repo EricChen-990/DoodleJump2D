@@ -5,21 +5,26 @@ using System.Collections;
 
 public class Player : MonoBehaviour{
     private Rigidbody2D rb;
+
     public GameObject explosionPrefab;
-    private float moveEvent;
-    public float moveSpeed = 10f;
+    
     public TMP_Text ScoreText;
     public TMP_Text HighScoreText;
+
+    private Audio audios;
+
+    public float moveSpeed = 10f;
+    private float moveEvent;
     private float score;
     private float hscore;
     private float offset;
-    private Audio audios;
-    private bool isdown = false;
     private float x;
+
+    private bool isdown = false;
+    
 
     void Start(){
         rb = GetComponent<Rigidbody2D>();
-
         score = 0f;
         hscore = PlayerPrefs.GetInt("HighScore", 0);
         HighScoreText.text = $"High Score: {hscore}";
