@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckBox : MonoBehaviour
+public class OverlapCheck : MonoBehaviour
 {
     bool m_Started;
     public LayerMask m_LayerMask;
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_Started = true;
     }
 
     public bool NoObjectsInCollider(){
@@ -22,5 +22,12 @@ public class CheckBox : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        if(m_Started){
+            Gizmos.DrawWireCube(transform.position, transform.localScale);
+        }
     }
 }

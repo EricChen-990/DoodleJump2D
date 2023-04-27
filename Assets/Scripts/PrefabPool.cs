@@ -10,6 +10,7 @@ public class PrefabPool : MonoBehaviour
     private List<GameObject> trapRightPool = new List<GameObject>();
     private int amountToPool = 20;
     private int smallAmoountToPool = 5;
+
     [SerializeField] private GameObject platfromPrefab;
     [SerializeField] private GameObject springPrefab;
     [SerializeField] private GameObject trapPrefab;
@@ -24,25 +25,25 @@ public class PrefabPool : MonoBehaviour
             int j = UnityEngine.Random.Range(0, 10);
             switch(i){
                 case 0:
-                    GameObject gobj =  Instantiate(monsterPrefab);
+                    GameObject gobj = Instantiate(monsterPrefab);
                     gobj.SetActive(false);
                     poolObjects.Add(gobj);
                     break;
                 case 1:
                 case 2:
-                    GameObject gobj1 =  Instantiate(springPrefab);
+                    GameObject gobj1 = Instantiate(springPrefab);
                     gobj1.SetActive(false);
                     poolObjects.Add(gobj1);
                     break;
                 case 3:
                 case 4:
-                    GameObject gobj2 =  Instantiate(trapPrefab);
+                    GameObject gobj2 = Instantiate(trapPrefab);
                     gobj2.SetActive(false);
                     poolObjects.Add(gobj2);
                     break;
                 
                 default:
-                    GameObject gobj3 =  Instantiate(platfromPrefab);
+                    GameObject gobj3 = Instantiate(platfromPrefab);
                     gobj3.SetActive(false);
                     poolObjects.Add(gobj3);
                     break;
@@ -53,15 +54,15 @@ public class PrefabPool : MonoBehaviour
         for(int i = 0 ; i < smallAmoountToPool ; i++){
             GameObject gobja =  Instantiate(checkBoxPrefab);
             gobja.SetActive(false);
-            poolObjects.Add(gobja);
+            checkboxPool.Add(gobja);
 
             GameObject gobjb =  Instantiate(trapLeftPrefab);
             gobjb.SetActive(false);
-            poolObjects.Add(gobjb);
+            trapLeftPool.Add(gobjb);
 
             GameObject gobjc =  Instantiate(trapRightPrefab);
             gobjc.SetActive(false);
-            poolObjects.Add(gobjc);
+            trapRightPool.Add(gobjc);
         }
     }
 
@@ -69,9 +70,9 @@ public class PrefabPool : MonoBehaviour
 
     public GameObject GetObject(){
         int i = UnityEngine.Random.Range(0, poolObjects.Count);
-        GameObject goobj = poolObjects[i];
+        GameObject gobj = poolObjects[i];
         poolObjects.RemoveAt(i);
-        return goobj;
+        return gobj;
     }
 
     public void Recycle(GameObject gobj){
@@ -97,13 +98,13 @@ public class PrefabPool : MonoBehaviour
     }
 
     public void RecycleTrapLeft(GameObject gobj){
-        gobj.setActive(false);
+        gobj.SetActive(false);
         trapLeftPool.Add(gobj);
     }
 
-    public GameObject GetTrapRight(){
+    public GameObject GetTrapRightobject(){
         //int i = UnityEngine. Random. Range (0, poolobjects .Count);
-        GameObject gobj = traprightPool[0];
+        GameObject gobj = trapRightPool[0];
         trapRightPool.RemoveAt (0);
         return gobj;
     }

@@ -47,9 +47,9 @@ public class Player : MonoBehaviour{
         //     GetComponent<SpriteRenderer>();
         // }
 
-        if(moveEvent > 0){
+        if(moveEvent < 0){
             GetComponent<SpriteRenderer>().flipX = true;
-        }else if(moveEvent == 0){
+        }else if(moveEvent > 0){
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
