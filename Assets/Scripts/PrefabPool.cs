@@ -49,21 +49,23 @@ public class PrefabPool : MonoBehaviour
                     
             }
         }
+
+        for(int i = 0 ; i < smallAmoountToPool ; i++){
+            GameObject gobja =  Instantiate(checkBoxPrefab);
+            gobja.SetActive(false);
+            poolObjects.Add(gobja);
+
+            GameObject gobjb =  Instantiate(trapLeftPrefab);
+            gobjb.SetActive(false);
+            poolObjects.Add(gobjb);
+
+            GameObject gobjc =  Instantiate(trapRightPrefab);
+            gobjc.SetActive(false);
+            poolObjects.Add(gobjc);
+        }
     }
 
-    for(int i = 0 ; i < smallAmoountToPool ; i++){
-        GameObject gobja =  Instantiate(checkBoxPrefab);
-        gobja.SetActive(false);
-        poolObjects.Add(gobja);
-
-        GameObject gobjb =  Instantiate(trapLeftPrefab);
-        gobjb.SetActive(false);
-        poolObjects.Add(gobjb);
-
-        GameObject gobjc =  Instantiate(trapRightPrefab);
-        gobjc.SetActive(false);
-        poolObjects.Add(gobjc);
-    }
+    
 
     public GameObject GetObject(){
         int i = UnityEngine.Random.Range(0, poolObjects.Count);
@@ -88,7 +90,7 @@ public class PrefabPool : MonoBehaviour
         checkboxPool.Add(gobj);
     }
 
-    public Gameobject GetTrapLeftobject(){
+    public GameObject GetTrapLeftobject(){
         GameObject gobj = trapLeftPool[0];
         trapLeftPool.RemoveAt (0);
         return gobj;
@@ -99,13 +101,13 @@ public class PrefabPool : MonoBehaviour
         trapLeftPool.Add(gobj);
     }
 
-    public GameObject GetTrapRightobject(){
+    public GameObject GetTrapRight(){
         //int i = UnityEngine. Random. Range (0, poolobjects .Count);
         GameObject gobj = traprightPool[0];
         trapRightPool.RemoveAt (0);
         return gobj;
     }
-2個參考
+    
     public void RecycleTrapRight(GameObject gobj){
         gobj.SetActive(false); 
         trapRightPool.Add(gobj);
