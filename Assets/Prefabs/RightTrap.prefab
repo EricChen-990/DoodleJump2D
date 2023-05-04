@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6432665528672978180}
   - component: {fileID: 8905585748731980005}
   - component: {fileID: 2529746205341360883}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

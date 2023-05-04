@@ -23,7 +23,7 @@ public class PrefabPool : MonoBehaviour
     void Start(){
         for (int i = 0; i < amountToPool ; i++){
             int j = UnityEngine.Random.Range(0, 10);
-            switch(i){
+            switch(j){
                 case 0:
                     GameObject gobj = Instantiate(monsterPrefab);
                     gobj.SetActive(false);

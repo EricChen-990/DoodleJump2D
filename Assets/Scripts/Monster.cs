@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Monster : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Monster : MonoBehaviour
     public GameObject ExplosionPS;
 
     private PrefabPool prefabPool;
+    private bool isEat = false;
 
     private void Awake(){
         gd = FindObjectOfType<GameData>();
@@ -94,18 +96,33 @@ public class Monster : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
+        
+        if(isEat){
+            return;
+        }
+        isEat = true;
+
+        StartCoroutine(DelayThen(collision));
+
+        
+        Invoke("test",1);
+        Invoke("Menu",1);
+        
+        
+        
+    }
+
+    private IEnumerator DelayThen(Collision2D collision){
         Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
         collision.gameObject.transform.parent = transform;
         collision.gameObject.transform.position = transform.position;
         audios.PlayMonsterSound();
         ExplosionPS.GetComponent<ParticleSystem>().Play();
-        Invoke("test",1);
-        
-    }
-
-    private void test(){
+        yield return new WaitForSeconds(1f);
         Player.SetActive(false);
         audios.PlayExplosionPSSound();
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Menu");
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2274080679948328000}
   - component: {fileID: 629706948403742296}
   - component: {fileID: -5602589848587493483}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

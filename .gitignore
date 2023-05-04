@@ -73,3 +73,8 @@ crashlytics-build.properties
 
 .DS_Store
 .DS_Store?
+
+IOS-Build
+IOS-Build_BurstDebugInformation_DoNotShip
+build
+build.app

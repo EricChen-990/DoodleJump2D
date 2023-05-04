@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour{
     private Rigidbody2D rb;
@@ -37,11 +38,12 @@ public class Player : MonoBehaviour{
     void Update(){
         moveEvent = Input.GetAxis("Horizontal") * moveSpeed;
 
-        // if (Input.GetAxis("Horizontal") != 0f){
-        //    moveEvent = Input.GetAxis("Vertical") * moveSpeed;
-        // }else if (Mathf.Abs(Input.gyro.attitude.z) > 0.2f){
-        //    moveEvent = Input.acceleration.x * moveSpeed;
-        // }
+        if (Mathf.Abs(Input.gyro.attitude.z) > 0.2f){
+           moveEvent = Input.acceleration.x * moveSpeed;
+        }else if (Input.GetAxis("Horizontal") != 0f){
+           moveEvent = Input.GetAxis("Horizontal") * moveSpeed;
+        }
+
 
         // if (rb.velocity.y > 0){
         //     GetComponent<SpriteRenderer>();
@@ -74,14 +76,14 @@ public class Player : MonoBehaviour{
 
     }
 
-    private IEnumerator DelayThenExplode()
-    {
+    private IEnumerator DelayThenExplode(){
         isdown = true;
         audios.PlayDownSound();
         yield return new WaitForSeconds(2.5f);
         explosionPrefab.transform.position = new Vector3(x, explosionPrefab.transform.position.y, explosionPrefab.transform.position.z);
-        Debug.Log("do");
         explosionPrefab.GetComponent<ParticleSystem>().Play();
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Menu");
     }
 
     private void FixedUpdate(){
