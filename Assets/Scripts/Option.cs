@@ -10,6 +10,7 @@ public class Option : MonoBehaviour{
     private RectTransform OptionPanel;
     private Canvas canvas;
     private TMP_Text countdowntext;
+    private Audio audios;
 
     [System.Obsolete]
     private void Awake() {
@@ -19,17 +20,22 @@ public class Option : MonoBehaviour{
         countdowntext = countDownPanel.FindChild("CountDownText").GetComponent<TextMeshProUGUI>();
         countDownPanel.gameObject.SetActive(false);
         OptionPanel.gameObject.SetActive(true);
+        audios = FindObjectOfType<Audio>();
     }
 
     private IEnumerator CountdownToPlay(){
         yield return new WaitForSeconds(0.5f);
         OptionPanel.gameObject.SetActive(false);
         countDownPanel.gameObject.SetActive(true);
+        audios.PlayCountDownSound();
         yield return new WaitForSeconds(1);
         countdowntext.text = "2";
+        audios.PlayCountDownSound();
         yield return new WaitForSeconds(1);
         countdowntext.text = "1";
+        audios.PlayCountDownSound();
         yield return new WaitForSeconds(1);
+        countdowntext.text = "GO!";
         SceneManager.LoadScene("MainScenes");
     }
 
@@ -39,6 +45,6 @@ public class Option : MonoBehaviour{
 
     public void exit(){
         Debug.Log("Exit");
-        Application.Quit();
+        SceneManager.LoadScene("End");
     }
 }

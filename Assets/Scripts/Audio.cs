@@ -14,6 +14,18 @@ public class Audio : MonoBehaviour
     public AudioSource Explosion;
     public AudioSource ExplosionPS;
 
+    public AudioSource CountDown;
+    public static Audio _instance;
+
+    private void Awake() {
+        if(_instance == null){
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }else{
+            Destroy(this.gameObject);
+        }
+    }
+
     void Start()
     {
         Background.loop = true;
@@ -52,5 +64,9 @@ public class Audio : MonoBehaviour
 
     public void PlayExplosionPSSound(){
         ExplosionPS.Play();
+    }
+
+    public void PlayCountDownSound(){
+        CountDown.Play();
     }
 }
