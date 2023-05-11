@@ -102,14 +102,7 @@ public class Monster : MonoBehaviour
         }
         isEat = true;
 
-        StartCoroutine(DelayThen(collision));
-
-        
-        Invoke("test",1);
-        Invoke("Menu",1);
-        
-        
-        
+        StartCoroutine(DelayThen(collision));        
     }
 
     private IEnumerator DelayThen(Collision2D collision){
@@ -123,6 +116,6 @@ public class Monster : MonoBehaviour
         Player.SetActive(false);
         audios.PlayExplosionPSSound();
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("OptionScene");
     }
 }

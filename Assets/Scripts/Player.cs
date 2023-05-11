@@ -83,7 +83,7 @@ public class Player : MonoBehaviour{
         explosionPrefab.transform.position = new Vector3(x, explosionPrefab.transform.position.y, explosionPrefab.transform.position.z);
         explosionPrefab.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("OptionScene");
     }
 
     private void FixedUpdate(){
